@@ -6,11 +6,12 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var http = require('http');
 var mongoose = require('mongoose');
-
+var auth = require('./routes/authorize');
+var users = require('./routes/users');
 var messages = require('./routes/messages');
 
-var app = express();
 
+var app = express();
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -39,6 +40,8 @@ app.all('/*', function (req, res, next) {
 });
 
 // app.use('/', index);
+app.use('/authorize', auth);
+app.use('/users', users);
 app.use('/messages', messages);
 
 // catch 404 and forward to error handler
@@ -53,7 +56,18 @@ var port = process.env.PORT || '8080';
 app.set('port', port);
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
 
 server.listen(port);
+
+io.on('connection', function (socket) {
+  console.log('connection socket success');
+  
+  socket.on('newMessage', function() {
+    console.log('new message');
+    io.emit('updateMessages', true);
+  });
+  
+});
 
 module.exports = app;

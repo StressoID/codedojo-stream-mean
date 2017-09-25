@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 const MessageSchema = new mongoose.Schema({
-   nickName: String,
+   userId: mongoose.Schema.Types.ObjectId,
    message: String,
    created: { 
        type: Date, 
