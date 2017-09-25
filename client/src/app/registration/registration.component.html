@@ -1,0 +1,14 @@
+<md-card class="registration">
+    <form [formGroup]="regForm" novalidate (submit)="reg()">
+        <md-input-container>
+           <input type="text" mdInput placeholder="Username" formControlName="username"/>
+        </md-input-container>
+        <md-input-container>
+           <input type="password" mdInput placeholder="Password" formControlName="password"/>
+        </md-input-container>
+        <md-input-container>
+           <input type="nickname" mdInput placeholder="Nickname" formControlName="nickname"/>
+        </md-input-container>
+       <button md-raised-button color="primary">Зарегистрироваться</button>
+    </form>
+</md-card>

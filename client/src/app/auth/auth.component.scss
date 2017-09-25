@@ -1,0 +1,17 @@
+.auth-wrapper {
+    width: 700px;
+    margin: 0 auto;
+    .auth-form {
+        margin: 10px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        md-input-container {
+            width: 100%;
+            margin: 0 10px;
+        }
+    }
+    .reg-link {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,24 @@
+<div class="auth-wrapper">
+    <md-card class="auth-form">
+        <form [formGroup]="loginForm" novalidate (submit)="login()">
+            <md-input-container>
+                <input required placeholder="Username" mdInput formControlName="username">
+            </md-input-container>
+            <md-input-container>
+                <input 
+                    type="password" 
+                    required 
+                    placeholder="Password" 
+                    mdInput 
+                    formControlName="password">
+            </md-input-container>
+            <button 
+                color="primary"
+                md-raised-button 
+                [disabled]="loginForm.invalid">
+                    Войти
+            </button>
+            <a class="reg-link" routerLink="/registration">Регистрация</a>
+        </form>
+    </md-card>
+</div>
