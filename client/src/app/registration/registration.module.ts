@@ -12,9 +12,10 @@ import { RegistrationService } from './registration.service';
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    RegistrationRoutingModule
+    RegistrationRoutingModule,
   ],
   declarations: [RegistrationComponent],
-  providers: [RegistrationService]
+  providers: [RegistrationService],
 })
-export class RegistrationModule { }
+export class RegistrationModule {
+}

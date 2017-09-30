@@ -15,8 +15,9 @@ import { SharedModule } from '../shared/shared.module';
     ChatRoutingModule,
   ],
   providers: [
-    ChatService
+    ChatService,
   ],
-  declarations: [ChatComponent]
+  declarations: [ChatComponent],
 })
-export class ChatModule { }
+export class ChatModule {
+}

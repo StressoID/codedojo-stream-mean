@@ -5,11 +5,12 @@ import { MdModule } from './md/md.module';
 @NgModule({
   imports: [
     CommonModule,
-    MdModule
+    MdModule,
   ],
   declarations: [],
   exports: [
-    MdModule  
-  ]
+    MdModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {
+}

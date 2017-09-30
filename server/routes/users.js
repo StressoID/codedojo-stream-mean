@@ -5,43 +5,42 @@ var User = require('../models/User.js');
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     User
         .find({})
-        .exec(function(err, users) {
+        .exec(function (err, users) {
             res.set('Content-Type', 'application/json')
-            .status(200)
-            .json(users);
+                .status(200)
+                .json(users);
         });
 });
 
 /* GET user by Id */
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function (req, res, next) {
     User
-        .find({ '_id': req.params.id })
-        .exec(function(err, user) {
+        .find({'_id': req.params.id})
+        .exec(function (err, user) {
             res.set('Content-Type', 'application/json')
-            .status(200)
-            .json(user);
+                .status(200)
+                .json(user);
         });
 });
 
 /* POST create user. */
-router.post('/', function(req, res, next) {
-    
+router.post('/', function (req, res, next) {
+
     User.create(req.body, function (err, user) {
         res.set('Content-Type', 'application/json').status(200).send('ok');
     });
 });
 
 /* PUT update user. */
-router.put('/', function(req, res, next) {
-    
+router.put('/', function (req, res, next) {
+
     User.findByIdAndUpdate(req.body, function (err, user) {
         res.set('Content-Type', 'application/json').status(200).send('ok');
     });
 });
-
 
 
 module.exports = router;

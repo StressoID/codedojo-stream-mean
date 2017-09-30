@@ -1,18 +1,18 @@
 .registration {
-    width: 700px;
-    margin: 10px auto;
+  width: 700px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  form {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    form {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        md-input-container {
-            width: 60%;
-        }
-        button {
-            display: block;
-            width: 300px;
-        }
+    md-input-container {
+      width: 60%;
     }
+    button {
+      display: block;
+      width: 300px;
+    }
+  }
 }

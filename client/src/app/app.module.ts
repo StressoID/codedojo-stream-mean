@@ -14,7 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './auth.guard';
 
-import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { SocketIoConfig, SocketIoModule } from 'ng-socket-io';
 
 
 const config: SocketIoConfig = { url: 'https://codedojo-streams-stressoid.c9users.io:8080', options: {} };
@@ -22,7 +22,7 @@ const config: SocketIoConfig = { url: 'https://codedojo-streams-stressoid.c9user
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +34,10 @@ const config: SocketIoConfig = { url: 'https://codedojo-streams-stressoid.c9user
     SharedModule,
     RegistrationModule,
     SocketIoModule.forRoot(config),
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
