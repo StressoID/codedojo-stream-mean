@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistrationComponent } from './registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RegistrationService } from './registration.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
@@ -8,7 +13,9 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [BrowserAnimationsModule, ReactiveFormsModule, SharedModule, HttpClientTestingModule],
       declarations: [RegistrationComponent],
+      providers: [RegistrationService]
     })
       .compileComponents();
   }));

@@ -11,7 +11,7 @@ export class ChatService {
 
   public messageSubject: Subject<any> = new Subject();
 
-  private HOST = 'https://codedojo-streams-stressoid.c9users.io:8080';
+  private HOST = 'http://localhost:3000';
 
   constructor(private http: HttpClient, private socket: Socket) {
     this.socket.fromEvent('updateMessages').subscribe(data => {

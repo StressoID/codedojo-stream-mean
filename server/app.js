@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-let connectionsString = 'mongodb://' + process.env.IP + ':27017/chat';
+let connectionsString = 'mongodb://localhost:27017/chat';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(connectionsString).

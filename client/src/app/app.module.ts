@@ -17,7 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { SocketIoConfig, SocketIoModule } from 'ng-socket-io';
 
 
-const config: SocketIoConfig = { url: 'https://codedojo-streams-stressoid.c9users.io:8080', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 
 @NgModule({

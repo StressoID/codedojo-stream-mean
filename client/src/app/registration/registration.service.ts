@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class RegistrationService {
 
-  private HOST = 'https://codedojo-streams-stressoid.c9users.io:8080';
+  private HOST = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 

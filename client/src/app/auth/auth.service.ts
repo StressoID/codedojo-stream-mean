@@ -5,9 +5,9 @@ import { User } from './user.model';
 @Injectable()
 export class AuthService {
 
-  private HOST = 'https://codedojo-streams-stressoid.c9users.io:8080';
-
   constructor(private http: HttpClient) { }
+
+  private HOST = 'http://localhost:3000';
 
   public authorize(user) {
 
