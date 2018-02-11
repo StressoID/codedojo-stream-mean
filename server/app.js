@@ -22,7 +22,7 @@ app.use(cookieParser());
 let connectionsString = 'mongodb://localhost:27017/chat';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(connectionsString).
+mongoose.connect(connectionsString, { useMongoClient: true }).
   then(() => console.log('OK')).
   catch((err) => console.log('Error:' + err));
 
@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
 });
 
 
-var port = process.env.PORT || '8080';
+var port = process.env.PORT || '3000';
 app.set('port', port);
 
 var server = http.createServer(app);

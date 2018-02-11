@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
-import { User } from './user.model';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthService} from './auth.service';
+import {User} from './user.model';
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-auth',
@@ -17,15 +18,22 @@ export class AuthComponent {
   });
   private user: User;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, private matSnackBar: MatSnackBar) {}
 
   public login() {
-    this.authService.authorize(this.loginForm.value).subscribe(user => {
-      this.user = user;
+    this.authService.authorize(this.loginForm.value)
+      .subscribe(user => {
+        this.user = user;
+        if (this.user) {
+          localStorage.setItem('user', JSON.stringify(this.user));
+          this.router.navigate(['/chat']);
+          return;
+        }
 
-      localStorage.setItem('user', JSON.stringify(this.user));
-      this.router.navigate(['/chat']);
-    });
+        this.matSnackBar.open('Нет такого пользователя', 'Закрыть', {
+          duration: 2000
+        });
+      });
   }
 
 }

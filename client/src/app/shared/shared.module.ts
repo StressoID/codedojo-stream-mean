@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdModule } from './md/md.module';
+import {MatModule} from "./md/mat.module";
 
 @NgModule({
   imports: [
     CommonModule,
-    MdModule,
+    MatModule,
   ],
   declarations: [],
   exports: [
-    MdModule,
+    MatModule,
   ],
 })
 export class SharedModule {

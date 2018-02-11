@@ -13,7 +13,6 @@ import { RegistrationModule } from './registration/registration.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './auth.guard';
-
 import { SocketIoConfig, SocketIoModule } from 'ng-socket-io';
 
 

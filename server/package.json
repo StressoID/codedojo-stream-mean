@@ -1,18 +1,26 @@
 {
   "name": "server",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "express": "~4.15.2",
-    "mongoose": "^4.11.6",
-    "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2",
-    "socket.io": "^2.0.3"
+    "@nestjs/common": "^4.5.1",
+    "@nestjs/core": "^4.5.1",
+    "@nestjs/microservices": "^4.5.1",
+    "@nestjs/mongoose": "^3.0.1",
+    "@nestjs/testing": "^4.5.1",
+    "@nestjs/websockets": "^4.5.1",
+    "cors": "^2.8.4",
+    "mongoose": "^5.0.4",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.5.6",
+    "socket.io": "^2.0.3",
+    "typescript": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.41",
+    "ts-node": "^4.1.0"
   }
 }

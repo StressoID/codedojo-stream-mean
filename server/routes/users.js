@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = require('../models/User.js');
+var User = require('../modules/users/user.schema');
 
 
 /* GET users listing. */
@@ -30,7 +30,7 @@ router.get('/:id', function (req, res, next) {
 router.post('/', function (req, res, next) {
 
     User.create(req.body, function (err, user) {
-        res.set('Content-Type', 'application/json').status(200).send('ok');
+        res.set('Content-Type', 'application/json').status(200);
     });
 });
 
@@ -38,7 +38,7 @@ router.post('/', function (req, res, next) {
 router.put('/', function (req, res, next) {
 
     User.findByIdAndUpdate(req.body, function (err, user) {
-        res.set('Content-Type', 'application/json').status(200).send('ok');
+        res.set('Content-Type', 'application/json').status(200);
     });
 });
 

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Message = require('../models/Message.js');
+var Message = require('../modules/messages/message.schema.ts');
 
 
 /* GET messages listing. */
