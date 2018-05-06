@@ -13,11 +13,6 @@ import { RegistrationModule } from './registration/registration.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthGuard } from './auth.guard';
-import { SocketIoConfig, SocketIoModule } from 'ng-socket-io';
-
-
-const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
-
 
 @NgModule({
   declarations: [
@@ -32,7 +27,6 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     AuthModule,
     SharedModule,
     RegistrationModule,
-    SocketIoModule.forRoot(config),
     AppRoutingModule,
   ],
   providers: [AuthGuard],

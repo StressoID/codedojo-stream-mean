@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ChatMessage} from './chat.model';
-import {Socket} from 'ng-socket-io';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -13,11 +12,11 @@ export class ChatService {
 
   private HOST = 'http://localhost:3000';
 
-  constructor(private http: HttpClient, private socket: Socket) {
-    this.socket.fromEvent('updateMessages').subscribe(data => {
-      console.log('chat service update message');
-      this.messageSubject.next(true);
-    });
+  constructor(private http: HttpClient) {
+    // this.socket.fromEvent('updateMessages').subscribe(data => {
+    //   console.log('chat service update message');
+    //   this.messageSubject.next(true);
+    // });
   }
 
   public getMessages() {
@@ -31,7 +30,7 @@ export class ChatService {
     return this.http.post<ChatMessage>(this.HOST + '/messages', message, {headers: header})
       .pipe(
         map((response) => {
-          this.socket.emit('newMessage');
+          // this.socket.emit('newMessage');
           console.log('response ok');
           return response;
         })
@@ -40,10 +39,10 @@ export class ChatService {
   }
 
   public update() {
-    return this.socket.fromEvent('updateMessages')
-      .pipe(
-        map(data => true)
-      );
+    // return this.socket.fromEvent('updateMessages')
+    //   .pipe(
+    //     map(data => true)
+    //   );
   }
 
 }
