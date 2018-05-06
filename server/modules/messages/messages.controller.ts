@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { MessagesService } from './messages.service';
 import { CreateMessageDto } from './create-message.dto';
-
+import { Message } from './message.interface';
 
 @Controller('messages')
 export class MessagesController {
@@ -14,12 +14,12 @@ export class MessagesController {
   }
 
   @Get()
-  public async findAll() {
+  public async findAll(): Promise<Message[]> {
     return await this.messagesService.findAll();
   }
 
   @Get(':id')
-  public async findOne(id) {
-    return await this.messagesService.findOne({ '_id': id });
+  public async findOne(id: string) {
+    return await this.messagesService.findOne(id);
   }
 }

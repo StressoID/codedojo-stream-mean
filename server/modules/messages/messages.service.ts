@@ -15,7 +15,6 @@ export class MessagesService {
   }
 
   async create(message) {
-    console.log(message);
     const createdMessage = new this.messageModel(message);
     return await createdMessage.save();
   }

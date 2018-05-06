@@ -46,6 +46,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     const user = JSON.parse(localStorage.getItem('user'));
 
     message.userId = user._id;
+    message.nickname = user.nickname;
     message.message = this.messageForm.controls.messageControl.value;
 
     this.chatService.sendMessage(message).subscribe(() => {

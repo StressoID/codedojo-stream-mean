@@ -1,6 +1,6 @@
 <mat-card *ngIf="chatMessages.length > 0;" class="chat">
   <div class="chat-message" *ngFor="let message of chatMessages">
-    <span class="nickname">{{ message.nickName }}</span>
+    <span class="nickname">{{ message.nickname }}</span>
     <span class="message">{{ message.message }}</span>
     <span class="dateMessage">{{ message.created | date: 'short'}}</span>
   </div>
