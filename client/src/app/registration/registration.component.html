@@ -1,14 +1,14 @@
 <mat-card class="registration">
   <form [formGroup]="regForm" novalidate (submit)="reg()">
-    <mat-input-container>
+    <mat-form-field>
       <input type="text" matInput placeholder="Username" formControlName="username"/>
-    </mat-input-container>
-    <mat-input-container>
+    </mat-form-field>
+    <mat-form-field>
       <input type="password" matInput placeholder="Password" formControlName="password"/>
-    </mat-input-container>
-    <mat-input-container>
+    </mat-form-field>
+    <mat-form-field>
       <input type="nickname" matInput placeholder="Nickname" formControlName="nickname"/>
-    </mat-input-container>
+    </mat-form-field>
     <button mat-raised-button color="primary">Зарегистрироваться</button>
   </form>
 </mat-card>

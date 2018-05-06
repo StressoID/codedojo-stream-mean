@@ -1,17 +1,17 @@
 <div class="auth-wrapper">
   <mat-card class="auth-form">
     <form [formGroup]="loginForm" novalidate (submit)="login()">
-      <mat-input-container>
+      <mat-form-field>
         <input required placeholder="Username" matInput formControlName="username">
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input
           type="password"
           required
           placeholder="Password"
           matInput
           formControlName="password">
-      </mat-input-container>
+      </mat-form-field>
       <button
         color="primary"
         mat-raised-button

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ChatMessage } from './chat.model';
-import { Socket } from 'ng-socket-io';
-import 'rxjs/add/operator/map';
-import { Subject } from 'rxjs/Subject';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {ChatMessage} from './chat.model';
+import {Socket} from 'ng-socket-io';
+import {Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 
 @Injectable()
@@ -28,16 +28,22 @@ export class ChatService {
   public sendMessage(message) {
     const header = new HttpHeaders();
     header.set('Content-Type', 'application/json');
-    return this.http.post<ChatMessage>(this.HOST + '/messages', message, { headers: header })
-      .map((response) => {
-        this.socket.emit('newMessage');
-        console.log('response ok');
-        return response;
-      });
+    return this.http.post<ChatMessage>(this.HOST + '/messages', message, {headers: header})
+      .pipe(
+        map((response) => {
+          this.socket.emit('newMessage');
+          console.log('response ok');
+          return response;
+        })
+      );
+
   }
 
   public update() {
-    return this.socket.fromEvent('updateMessages').map(data => true);
+    return this.socket.fromEvent('updateMessages')
+      .pipe(
+        map(data => true)
+      );
   }
 
 }

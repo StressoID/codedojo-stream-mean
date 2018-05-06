@@ -7,9 +7,9 @@
 </mat-card>
 <mat-card class="chat-inputs">
   <form [formGroup]="messageForm" (submit)="send()">
-    <mat-input-container>
+    <mat-form-field>
       <input required matInput formControlName="messageControl">
-    </mat-input-container>
+    </mat-form-field>
     <button [disabled]="messageForm.invalid" mat-mini-fab>
       <mat-icon>send</mat-icon>
     </button>
