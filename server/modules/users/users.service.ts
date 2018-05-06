@@ -1,13 +1,13 @@
-import {Component} from '@nestjs/common';
-import {InjectModel} from '@nestjs/mongoose';
-import {UserSchema} from './user.schema';
-import {User} from './user.interface';
+import { Component } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { UserSchema } from './user.schema';
+import { User } from './user.interface';
 
 @Component()
 export class UsersService {
   constructor(@InjectModel(UserSchema) private readonly userModel: any) { }
 
-  async findOne(params) {
+  async findOne(params): Promise<User> {
     return await this.userModel.findOne(params).exec();
   }
 

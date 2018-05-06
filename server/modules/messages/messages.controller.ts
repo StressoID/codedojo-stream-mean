@@ -1,6 +1,6 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
-import {MessagesService} from './messages.service';
-import {CreateMessageDto} from './create-message.dto';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { MessagesService } from './messages.service';
+import { CreateMessageDto } from './create-message.dto';
 
 
 @Controller('messages')
@@ -20,6 +20,6 @@ export class MessagesController {
 
   @Get(':id')
   public async findOne(id) {
-    return await this.messagesService.findOne({'_id': id});
+    return await this.messagesService.findOne({ '_id': id });
   }
 }

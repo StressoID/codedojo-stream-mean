@@ -1,0 +1,23 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "./dist/server",
+        "mapRoot": "./dist/server",
+        "sourceMap": true,
+        "declaration": false,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es6"
+    },
+    "include": [
+        "modules/**/*",
+        "main.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
